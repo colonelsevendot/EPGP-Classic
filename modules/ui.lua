@@ -940,7 +940,7 @@ local function EPGPSideFrameEPDropDown_SetList(dropDown)
 end
 
 local function AddEPControls(frame, withRecurring)
-  --HITMEHARD
+  --HITMEHARD - Note: this did not work
   --withRecurring = withRecurring or false
   local reasonLabel =
     frame:CreateFontString(nil, "ARTWORK", "GameFontHighlightSmall")
@@ -1050,9 +1050,8 @@ local function AddEPControls(frame, withRecurring)
       reason = otherEditBox:GetText()
     end
     local amount = editBox:GetNumber()
-	--HITMEHARD
-	--print(withRecurring)
-	--if (not withRecurring or UnitInRaid("player")) and EPGP:CanIncEPBy(reason, amount) then
+    --HITMEHARD - Replaced:
+    --if (not withRecurring or UnitInRaid("player")) and EPGP:CanIncEPBy(reason, amount) then
     if EPGP:CanIncEPBy(reason, amount) then
       self:Enable()
       self:SetAlpha(1)
@@ -1649,7 +1648,7 @@ local function CreateEPGPSideFrame(self)
         end)
     end
     if not epFrame.button then
-      --HITMEHARD FRAME SINGLE EP
+      --HITMEHARD FRAME SINGLE
       AddEPControls(epFrame)
       f:SetHeight(gpFrame:GetHeight() + epFrame:GetHeight() + 60)
       epFrame.button:SetScript(
@@ -1704,7 +1703,8 @@ local function CreateEPGPSideFrame2()
   f:SetScript("OnShow", function()
     if not epFrame.initiated then
       epFrame.initiated = true
-	  --HITMEHARD FRAME MASS EP
+	  --HITMEHARD FRAME MASS
+	  --NOTE: AddEPControls(FrameData,booleanRecurring)
       AddEPControls(epFrame, true)
       epFrame.button:SetScript(
         "OnClick",
