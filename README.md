@@ -1,6 +1,4 @@
-# EPGP Classic
-
-EPGP-Classic **CAN** work on **WOW Classic**.
+# EPGP Classic - Monsters Inc Guild Branch
 
 ## Relationship with "epgp (dkp reloaded)"
 
